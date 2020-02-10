@@ -10,7 +10,6 @@ import { MatFormFieldModule} from "@angular/material/form-field";
   ],
   exports : [
     CommonModule,
-    NgModule,
     MatFormFieldModule
   ]
 })
