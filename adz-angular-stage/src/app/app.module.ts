@@ -1,33 +1,49 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
-import { ErrorComponent } from './error/error.component';
-import { MaterialModule } from "./material/material.module";
+import { HomeComponent } from './component/home/home.component';
+import { ErrorComponent } from './component/error/error.component';
+import { MaterialModule } from "./modules/material/material.module";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
-import { CatalogueComponent } from './catalogue/catalogue.component';
+import { CatalogueComponent } from './component/catalogue/catalogue.component';
+import {ApiConfigService} from "./services/api-config/api-config.service";
 
+
+export function initializeApi(appConfig: ApiConfigService) {
+  return () => appConfig.getConfigBook();
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ErrorComponent,
-    CatalogueComponent
+    CatalogueComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    ApiConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApi,
+      deps: [ApiConfigService], multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
