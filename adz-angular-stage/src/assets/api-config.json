@@ -1,0 +1,17 @@
+{
+  "booksService": {
+    "apiKey": "AIzaSyC6YtS1a9mHGr0Mx15j_JJrOugfUIeZFoE",
+    "apiUrl": "https://www.googleapis.com/books/v1/volumes",
+    "maxItemsInResponse": 40,
+    "responseItems": [
+      "volumeInfo/title",
+      "volumeInfo/subtitle",
+      "volumeInfo/authors",
+      "volumeInfo/description",
+      "volumeInfo/publishedDate",
+      "volumeInfo/previewLink",
+      "volumeInfo/categories",
+      "volumeInfo/imageLinks/smallThumbnail"
+    ]
+  }
+}
