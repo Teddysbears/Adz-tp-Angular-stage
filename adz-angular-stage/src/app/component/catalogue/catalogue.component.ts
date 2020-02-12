@@ -12,15 +12,15 @@ import {Book} from "../../models/book.model";
 export class CatalogueComponent implements OnInit {
 
   keywords: String;
-  booksList$: Observable<Book>;
+  booksList$: Observable<Book[]>;
 
 
   constructor(private activatedRoute: ActivatedRoute, private bookApiService: BookApiService) { }
 
   ngOnInit(): void {
     this.keywords = this.activatedRoute.snapshot.paramMap.get('keyword').replace(/\s/g, "+");
-    console.log(this.keywords);
-    this.bookApiService.getListOfBooks(this.keywords.toString());
+    this.booksList$ = this.bookApiService.getListOfBooks(this.keywords.toString());
+    this.booksList$.forEach( book => console.log(book));
   }
 
 }

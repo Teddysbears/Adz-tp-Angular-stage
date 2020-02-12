@@ -18,7 +18,6 @@ export class BookApiService {
   constructor(private httpClient: HttpClient) {
     this.configBook = ApiConfigService.configBook.booksService;
     this.jsonToBook = new JsonToBook();
-    console.log(this.configBook);
   }
 
   public getListOfBooks(keywords: string) : Observable<Book[]>{
