@@ -14,7 +14,7 @@ export class JsonToBook {
       fileds.description || '',
       isNaN(dateYear) ? '' : dateYear.toString(),
       fileds.categories || '',
-      (fileds.imageLinks && fileds.imageLinks.smallThumbnail) || ''
+      (fileds.imageLinks && fileds.imageLinks.smallThumbnail) || '../assets/images/book.svg'
     );
   }
 }
