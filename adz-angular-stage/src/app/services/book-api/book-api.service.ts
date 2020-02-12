@@ -17,6 +17,7 @@ export class BookApiService {
 
   constructor(private httpClient: HttpClient) {
     this.configBook = ApiConfigService.configBook.booksService;
+    this.jsonToBook = new JsonToBook();
     console.log(this.configBook);
   }
 
@@ -35,6 +36,7 @@ export class BookApiService {
   }
 
   private convertJsonToBook(collection: any[]): Book[] {
+    console.log('nop');
     return collection.map(item => this.jsonToBook.fromJson(item));
   }
 
