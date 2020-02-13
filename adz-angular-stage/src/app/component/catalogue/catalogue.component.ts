@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {BookApiService} from '../../services/book-api/book-api.service';
 import {Book} from '../../models/book.model';
@@ -10,17 +10,22 @@ import {BookDialogOverviewComponent} from '../book-dialog-overview/book-dialog-o
   templateUrl: './catalogue.component.html',
   styleUrls: ['./catalogue.component.css']
 })
-export class CatalogueComponent implements OnInit {
+export class CatalogueComponent implements OnChanges {
+  @Input() booksList$: Book[];
 
-  keywords: string;
-  booksList$: Book[];
+  // keywords: string;
+  // booksList$: Book[];
+  //
+  //
+  constructor(private dialog: MatDialog) { }
+  //
+  // ngOnInit(): void {
+  //   this.keywords = this.activatedRoute.snapshot.paramMap.get('keyword').replace(/\s/g, '+');
+  //   this.bookApiService.getListOfBooks(this.keywords.toString()).subscribe(res => this.booksList$ = res);
+  // }
 
+  ngOnChanges(changes: SimpleChanges): void {
 
-  constructor(private activatedRoute: ActivatedRoute, private bookApiService: BookApiService, private dialog: MatDialog) { }
-
-  ngOnInit(): void {
-    this.keywords = this.activatedRoute.snapshot.paramMap.get('keyword').replace(/\s/g, '+');
-    this.bookApiService.getListOfBooks(this.keywords.toString()).subscribe(res => this.booksList$ = res);
   }
 
   openBookDialog(book: Book): void {
