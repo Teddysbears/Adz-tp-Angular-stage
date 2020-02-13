@@ -3,13 +3,15 @@
 
 <p> keywords : {{keywords}}</p>
 <div class="container">
+  <h1> Book list</h1>
   <div class="container-grid">
     <div *ngFor="let book of booksList$" class="item">
       <div class="grid-container-book">
         <div class="image">
-          <img src="{{book.smallThumbnailUrl}}" alt="{{book.title}}" style="width:100%;   max-height: 150px;" class="book-image">
+          <img src="{{book.smallThumbnailUrl}}" alt="{{book.title}}" style="width:100%;   max-height: 150px; min-height: 150px" class="book-image">
         </div>
         <div class="information">
+          <h4 style="text-decoration: underline; font-weight: bold;"> Title :</h4>
           <p>{{book.title}}</p>
         </div>
       </div>
