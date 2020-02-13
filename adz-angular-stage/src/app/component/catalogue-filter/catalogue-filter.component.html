@@ -1,33 +1,39 @@
-<div class="example-container">
-  <form [formGroup]="filters">
-
-    <mat-form-field appearance="fill" >
-      <mat-label>Subtitle</mat-label>
-      <input formControlName="subtitle" matInput placeholder="Subtitle">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Category</mat-label>
-      <input formControlName="category" matInput placeholder="Category">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Author</mat-label>
-      <input matInput placeholder="Author" formControlName="author">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Month and Year</mat-label>
-      <input matInput [matDatepicker]="dp" [formControl]="date">
-      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-      <mat-datepicker #dp
-                      startView="multi-year"
-                      (yearSelected)="chosenYearHandler($event, dp)"
-                      panelClass="example-month-picker">
-      </mat-datepicker>
-    </mat-form-field>
-
-  </form>
+<div class="container">
+  <div class="example-container">
+    <button mat-icon-button color="primary" class="back-arrow" aria-label="Back" (click)="Onclick()" matTooltip="Go Back" matTooltipPosition="after">
+      <mat-icon [inline]="true">arrow_back</mat-icon>
+    </button>
+    <h1>Filters: </h1>
+    <form [formGroup]="filters" (ngSubmit)="submitForm()">
+      <mat-form-field appearance="fill" class="filter">
+        <mat-label>Subtitle</mat-label>
+        <input formControlName="subtitle" matInput placeholder="Subtitle">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="filter">
+        <mat-label>Category</mat-label>
+        <input formControlName="category" matInput placeholder="Category">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="filter">
+        <mat-label>Author</mat-label>
+        <input formControlName="author" matInput placeholder="Author">
+      </mat-form-field>
+        <mat-form-field appearance="fill" class="filter">
+          <mat-label>Date</mat-label>
+          <input formControlName="date" matInput placeholder="Date">
+        </mat-form-field>
+<!--        <mat-label>Year</mat-label>-->
+<!--        <input matInput [matDatepicker]="dp" [formControl]="date">-->
+<!--        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>-->
+<!--        <mat-datepicker #dp-->
+<!--                        startView="multi-year"-->
+<!--                        (yearSelected)="chosenYearHandler($event, dp)"-->
+<!--                        panelClass="example-year-picker">-->
+<!--        </mat-datepicker>-->
+      <button type="submit" mat-icon-button color="primary" aria-label="Back" matTooltip="Search" matTooltipPosition="after">
+        <mat-icon class="search">youtube_searched_for</mat-icon>
+      </button>
+    </form>
+  </div>
 </div>
 
-<p>{{filters.value | json}}, {{filters.get('subtitle')}}</p>
-
-<adz-catalogue></adz-catalogue>
+<adz-catalogue [booksList$]="booksList$"></adz-catalogue>

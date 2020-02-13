@@ -1,0 +1,23 @@
+.container {
+  align-items: center;
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  justify-content: center
+
+}
+
+
+
+.filter {
+  padding: 1%;
+}
+
+.search {
+  font-size: 35px;
+}
+
+.back-arrow {
+  font-size: 35px;
+  padding-bottom: 50px;
+}
