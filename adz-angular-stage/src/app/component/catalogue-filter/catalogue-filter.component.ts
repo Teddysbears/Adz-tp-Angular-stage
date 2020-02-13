@@ -7,9 +7,9 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 // import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 // import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 // import {MatDatepicker} from '@angular/material/datepicker';
-import {Book} from "../../models/book.model";
-import {ActivatedRoute, Router} from "@angular/router";
-import {BookApiService} from "../../services/book-api/book-api.service";
+import {Book} from '../../models/book.model';
+import {ActivatedRoute, Router} from '@angular/router';
+import {BookApiService} from '../../services/book-api/book-api.service';
 
 // const moment = _moment;
 //
@@ -45,14 +45,15 @@ export class CatalogueFilterComponent implements OnInit {
   subtitle: string;
   category: string;
   author: string;
-  //date = new FormControl(moment());
+  // date = new FormControl(moment());
   date: string;
 
   keywords: string;
   booksList$: Book[];
   booksListInstance: Book[];
 
-  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private bookApiService: BookApiService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute,
+              private bookApiService: BookApiService, private router: Router) {
     this.filters = formBuilder.group({
       subtitle: this.subtitle,
       category: this.category,
@@ -65,7 +66,7 @@ export class CatalogueFilterComponent implements OnInit {
   ngOnInit(): void {
     this.keywords = this.activatedRoute.snapshot.paramMap.get('keyword').replace(/\s/g, '+');
     this.bookApiService.getListOfBooks(this.keywords.toString()).subscribe(res => this.booksList$ = res);
-    this.bookApiService.getListOfBooks(this.keywords.toString()).subscribe(res => this.booksListInstance = res)
+    this.bookApiService.getListOfBooks(this.keywords.toString()).subscribe(res => this.booksListInstance = res);
   }
 
   // chosenYearHandler(normalizedYear: Moment, datepicker: MatDatepicker<Moment>) {
@@ -75,74 +76,84 @@ export class CatalogueFilterComponent implements OnInit {
   //   datepicker.close()
   // }
   isRealValue(value: string) {
-    return value && value !== 'null' && value !== 'undefined' && value != '';
+    return value && value !== 'null' && value !== 'undefined' && value !== '';
   }
 
   submitForm() {
     this.refreshBookList();
-    let appFilters = Object.values(this.filters.value);
-    let subtitle = String(appFilters[0]);
-    let category = String(appFilters[1]);
-    let author = String(appFilters[2]);
-    let date = String(appFilters[3]);
-    if(this.isRealValue(subtitle)) this.subtitleFilter(subtitle);
-    if(this.isRealValue(category)) this.categoryFilter(category);
-    if(this.isRealValue(author)) this.authorFilter(author);
-    if(this.isRealValue(date)) this.dateFilter(date);
+    const appFilters = Object.values(this.filters.value);
+    const subtitle = String(appFilters[0]);
+    const category = String(appFilters[1]);
+    const author = String(appFilters[2]);
+    const date = String(appFilters[3]);
+    if (this.isRealValue(subtitle)) {
+      this.subtitleFilter(subtitle);
+    }
+    if (this.isRealValue(category)) {
+      this.categoryFilter(category);
+    }
+    if (this.isRealValue(author)) {
+      this.authorFilter(author);
+    }
+    if (this.isRealValue(date)) {
+      this.dateFilter(date);
+    }
   }
 
   private refreshBookList() {
-    for( let j = 0; j<this.booksListInstance.length; j++) {
+    for (let j = 0; j < this.booksListInstance.length; j++) {
       this.booksList$[j] = this.booksListInstance[j];
     }
   }
 
+// Refactor all the for loop => one function
 
   private subtitleFilter(subtitle: string) {
-    for (let i = 0; i<this.booksList$.length; i++){
-      let book = this.booksList$[i];
-      if(!book.subtitle.includes(subtitle)) {
-        this.booksList$.splice(i,1);
+    for (let i = 0; i < this.booksList$.length; i++) {
+      const book = this.booksList$[i];
+      if (!book.subtitle.includes(subtitle)) {
+        this.booksList$.splice(i, 1);
         i--;
       }
     }
   }
 
   private categoryFilter(category: string) {
-    for (let i = 0; i<this.booksList$.length; i++){
-      let book = this.booksList$[i];
-      if(!this.isRealValue(book.categories[0]) ||(this.isRealValue(book.categories[0]) && !this.containsCategory(book.categories, category))) {
-        console.log('Im in');
-        this.booksList$.splice(i,1);
+    for (let i = 0; i < this.booksList$.length; i++) {
+      const book = this.booksList$[i];
+      if (!this.isRealValue(book.categories[0]) || (this.isRealValue(book.categories[0])
+          && !this.containsCategory(book.categories, category))) {
+        this.booksList$.splice(i, 1);
         i--;
       }
     }
   }
 
   private authorFilter(author: string) {
-    for (let i = 0; i<this.booksList$.length; i++){
-      let book = this.booksList$[i];
-      if(!book.author.includes(author)) {
-        this.booksList$.splice(i,1);
+    for (let i = 0; i < this.booksList$.length; i++) {
+      const book = this.booksList$[i];
+      if (!book.author.includes(author)) {
+        this.booksList$.splice(i, 1);
         i--;
       }
     }
   }
 
   private dateFilter(date: string) {
-    for (let i = 0; i<this.booksList$.length; i++){
-      let book = this.booksList$[i];
-      if(!book.publishedDate.includes(date)) {
-        this.booksList$.splice(i,1);
+    for (let i = 0; i < this.booksList$.length; i++) {
+      const book = this.booksList$[i];
+      if (!book.publishedDate.includes(date)) {
+        this.booksList$.splice(i, 1);
         i--;
       }
     }
   }
 
   private containsCategory(categories: string[], category: string) {
-
-    for (let i = 0; i<categories.length; i++) {
-      if(categories[i].includes(category)) return true;
+    for (const cat of categories) {
+      if (cat.includes(category)) {
+        return true;
+      }
     }
     return false;
   }
