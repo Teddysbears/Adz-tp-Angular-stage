@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [],
@@ -20,7 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     MatOptionModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule
   ],
   exports : [
     MatFormFieldModule,
@@ -30,7 +32,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     MatOptionModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule { }
