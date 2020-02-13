@@ -1,0 +1,33 @@
+<div class="example-container">
+  <form [formGroup]="filters">
+
+    <mat-form-field appearance="fill" >
+      <mat-label>Subtitle</mat-label>
+      <input formControlName="subtitle" matInput placeholder="Subtitle">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <input formControlName="category" matInput placeholder="Category">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Author</mat-label>
+      <input matInput placeholder="Author" formControlName="author">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Month and Year</mat-label>
+      <input matInput [matDatepicker]="dp" [formControl]="date">
+      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp
+                      startView="multi-year"
+                      (yearSelected)="chosenYearHandler($event, dp)"
+                      panelClass="example-month-picker">
+      </mat-datepicker>
+    </mat-form-field>
+
+  </form>
+</div>
+
+<p>{{filters.value | json}}, {{filters.get('subtitle')}}</p>
+
+<adz-catalogue></adz-catalogue>
