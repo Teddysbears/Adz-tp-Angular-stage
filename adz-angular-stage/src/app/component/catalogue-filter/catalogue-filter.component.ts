@@ -139,7 +139,7 @@ export class CatalogueFilterComponent implements OnInit {
     }
   }
 
-  private static containsCategory(categories: string[], category: string) {
+  private containsCategory(categories: string[], category: string) {
 
     for (let i = 0; i<categories.length; i++) {
       if(categories[i].includes(category)) return true;
