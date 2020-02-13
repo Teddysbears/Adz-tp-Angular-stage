@@ -1,6 +1,6 @@
-  import {Component, Inject, OnInit} from '@angular/core';
-  import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-  import {Book} from "../../models/book.model";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Book} from '../../models/book.model';
 
 @Component({
   selector: 'adz-book-dialog-overview',

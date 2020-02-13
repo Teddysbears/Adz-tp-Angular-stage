@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
-import { ApiConfigService, BooksApiServiceConfig } from '../api-config/api-config.service'
-import {Book} from "../../models/book.model";
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
-import {JsonToBook} from "../../converter/JsonToBook";
+import {HttpClient, HttpParams} from '@angular/common/http';
+import { ApiConfigService, BooksApiServiceConfig } from '../api-config/api-config.service';
+import {Book} from '../../models/book.model';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {JsonToBook} from '../../converter/JsonToBook';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class BookApiService {
     this.jsonToBook = new JsonToBook();
   }
 
-  public getListOfBooks(keywords: string) : Observable<Book[]>{
+  public getListOfBooks(keywords: string): Observable<Book[]> {
 
     const params: HttpParams = new HttpParams()
       .set('q', keywords)

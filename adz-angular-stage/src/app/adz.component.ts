@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'adz-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './adz.component.html',
+  styleUrls: ['./adz.component.css']
 })
-export class AppComponent {
+export class AdzComponent {
   title = 'adz-angular-stage';
   selected = 'Fr'; // Modify here
 }

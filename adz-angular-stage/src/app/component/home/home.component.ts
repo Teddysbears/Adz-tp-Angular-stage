@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'adz-home',
@@ -10,26 +10,23 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit {
 
   keywords: FormGroup;
-  private params: String;
+  private params: string;
 
-  constructor(private fb : FormBuilder, private router : Router) { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
-    this.reactiveForm()
+    this.reactiveForm();
   }
 
   reactiveForm() {
     this.keywords = this.fb.group({
       keyword: ['']
       }
-    )
-  }
-
-  manageKeyword() {
+    );
   }
 
   submitForm() {
-    this.router.navigate(['catalogue/',this.keywords.value]);
+    this.router.navigate(['catalogue/', this.keywords.value]);
   }
 
 }

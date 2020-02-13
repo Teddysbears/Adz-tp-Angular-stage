@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 
 
 export interface BooksApiServiceConfig {
@@ -10,7 +10,7 @@ export interface BooksApiServiceConfig {
 }
 
 export interface ConfigBook {
-  booksService: BooksApiServiceConfig
+  booksService: BooksApiServiceConfig;
 }
 
 @Injectable({
@@ -21,16 +21,16 @@ export class ApiConfigService {
 
   static configBook: ConfigBook;
 
-  constructor(private httpClient: HttpClient ){}
+  constructor(private httpClient: HttpClient) {}
 
   public getConfigBook() {
     return new Promise((resolve, reject) => {
       this.httpClient.get<ConfigBook>('assets/api-config.json')
         .toPromise()
         .then(data => resolve(data))
-        .catch(error => reject(error))
+        .catch(error => reject(error));
     })
-      .then((config : ConfigBook) => {
+      .then((config: ConfigBook) => {
         ApiConfigService.configBook  = config;
       })
       .catch(error => {

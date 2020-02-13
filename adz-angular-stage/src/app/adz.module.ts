@@ -1,19 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {APP_INITIALIZER, NgModule} from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from './modules/material/material.module';
 
 
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AdzRoutingModule } from './adz-routing.module';
+import { AdzComponent } from './adz.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './component/home/home.component';
 import { ErrorComponent } from './component/error/error.component';
-import { MaterialModule } from "./modules/material/material.module";
-import { FormsModule } from "@angular/forms";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CatalogueComponent } from './component/catalogue/catalogue.component';
-import {ApiConfigService} from "./services/api-config/api-config.service";
+import {ApiConfigService} from './services/api-config/api-config.service';
 import { BookDialogOverviewComponent } from './component/book-dialog-overview/book-dialog-overview.component';
 
 
@@ -23,7 +22,7 @@ export function initializeApi(appConfig: ApiConfigService) {
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AdzComponent,
     HomeComponent,
     ErrorComponent,
     CatalogueComponent,
@@ -31,7 +30,7 @@ export function initializeApi(appConfig: ApiConfigService) {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AdzRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
@@ -46,6 +45,6 @@ export function initializeApi(appConfig: ApiConfigService) {
       deps: [ApiConfigService], multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AdzComponent]
 })
-export class AppModule { }
+export class AdzModule { }
