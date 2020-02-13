@@ -16,15 +16,19 @@
   grid-gap: 10px;
 }
 
+.grid-container-book:hover {
+  cursor: pointer;
+}
+
 .container-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
   grid-gap: 16px;
 }
 .item {
   height: 150px;
   background-color: aliceblue;
-  max-width: 300px;
+  max-width: 100%;
   border-style: solid;
   border-width: 1px;
 }
