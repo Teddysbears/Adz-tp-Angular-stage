@@ -15,6 +15,7 @@ import { CatalogueComponent } from './component/catalogue/catalogue.component';
 import {ApiConfigService} from './services/api-config/api-config.service';
 import { BookDialogOverviewComponent } from './component/book-dialog-overview/book-dialog-overview.component';
 import { CatalogueFilterComponent } from './component/catalogue-filter/catalogue-filter.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 
 export function initializeApi(appConfig: ApiConfigService) {
@@ -29,6 +30,7 @@ export function initializeApi(appConfig: ApiConfigService) {
     CatalogueComponent,
     BookDialogOverviewComponent,
     CatalogueFilterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
