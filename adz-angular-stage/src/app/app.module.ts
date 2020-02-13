@@ -14,6 +14,7 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CatalogueComponent } from './component/catalogue/catalogue.component';
 import {ApiConfigService} from "./services/api-config/api-config.service";
+import { BookDialogOverviewComponent } from './component/book-dialog-overview/book-dialog-overview.component';
 
 
 export function initializeApi(appConfig: ApiConfigService) {
@@ -26,6 +27,7 @@ export function initializeApi(appConfig: ApiConfigService) {
     HomeComponent,
     ErrorComponent,
     CatalogueComponent,
+    BookDialogOverviewComponent,
   ],
   imports: [
     BrowserModule,
