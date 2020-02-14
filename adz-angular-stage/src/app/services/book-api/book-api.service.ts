@@ -35,7 +35,6 @@ export class BookApiService {
   }
 
   private convertJsonToBook(collection: any[]): Book[] {
-    console.log('nop');
     return collection.map(item => this.jsonToBook.fromJson(item));
   }
 

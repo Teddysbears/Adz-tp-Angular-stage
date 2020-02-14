@@ -15,7 +15,7 @@ export class AdzComponent {
   title = 'adz-angular-stage';
 
   constructor(private translate: TranslateService) {
-    this.selected = navigator.language.substr(0,2);
+    this.selected = navigator.language.substr(0, 2);
     translate.setDefaultLang(this.selected);
   }
 
