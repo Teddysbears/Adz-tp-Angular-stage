@@ -2,7 +2,7 @@
   <form [formGroup]="keywords" (ngSubmit)="submitForm()" class="search-form">
     <div class="example-container">
       <mat-form-field appearance="fill" class="input-keyword">
-        <mat-label>Search</mat-label>
+        <mat-label>{{'language.search' | translate }}</mat-label>
         <input formControlName="keyword" matInput>
       </mat-form-field>
     </div>

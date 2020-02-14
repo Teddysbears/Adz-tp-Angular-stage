@@ -1,25 +1,25 @@
 <div class="container">
   <div class="example-container">
-    <button mat-icon-button color="primary" class="back-arrow" aria-label="Back" (click)="Onclick()" matTooltip="Go Back" matTooltipPosition="after">
+    <button mat-icon-button color="primary" class="back-arrow" aria-label="Back" (click)="Onclick()" matTooltip="{{'language.back' | translate }}" matTooltipPosition="after">
       <mat-icon [inline]="true">arrow_back</mat-icon>
     </button>
-    <h1>Filters: </h1>
+    <h1>{{'language.filters' | translate }}: </h1>
     <form [formGroup]="filters" (ngSubmit)="submitForm()">
       <mat-form-field appearance="fill" class="filter">
-        <mat-label>Subtitle</mat-label>
-        <input formControlName="subtitle" matInput placeholder="Subtitle">
+        <mat-label>{{'language.subtitle' | translate }}</mat-label>
+        <input formControlName="subtitle" matInput placeholder="{{'language.subtitle' | translate }}">
       </mat-form-field>
       <mat-form-field appearance="fill" class="filter">
-        <mat-label>Category</mat-label>
-        <input formControlName="category" matInput placeholder="Category">
+        <mat-label>{{'language.category' | translate }}</mat-label>
+        <input formControlName="category" matInput placeholder="{{'language.category' | translate }}">
       </mat-form-field>
       <mat-form-field appearance="fill" class="filter">
-        <mat-label>Author</mat-label>
-        <input formControlName="author" matInput placeholder="Author">
+        <mat-label>{{'language.author' | translate }}</mat-label>
+        <input formControlName="author" matInput placeholder="{{'language.author' | translate }}">
       </mat-form-field>
         <mat-form-field appearance="fill" class="filter">
-          <mat-label>Date</mat-label>
-          <input formControlName="date" matInput placeholder="Date">
+          <mat-label>{{'language.date' | translate }}</mat-label>
+          <input formControlName="date" matInput placeholder="{{'language.date' | translate }}">
         </mat-form-field>
 <!--        <mat-label>Year</mat-label>-->
 <!--        <input matInput [matDatepicker]="dp" [formControl]="date">-->
@@ -29,7 +29,7 @@
 <!--                        (yearSelected)="chosenYearHandler($event, dp)"-->
 <!--                        panelClass="example-year-picker">-->
 <!--        </mat-datepicker>-->
-      <button type="submit" mat-icon-button color="primary" aria-label="Back" matTooltip="Search" matTooltipPosition="after">
+      <button type="submit" mat-icon-button color="primary" aria-label="Back" matTooltip="{{'language.search' | translate }}" matTooltipPosition="after">
         <mat-icon class="search">youtube_searched_for</mat-icon>
       </button>
     </form>

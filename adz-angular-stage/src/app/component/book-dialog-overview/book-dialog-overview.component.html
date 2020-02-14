@@ -3,13 +3,14 @@
   <div mat-dialog-content class="container">
     <img src="{{book.smallThumbnailUrl}}" alt="{{book.title}}">
     <div class="content">
-      <h2>Subtitle: {{book.subtitle}}</h2>
-      <h2>Categories: {{book.categories}}</h2>
-      <h2>Published date: {{book.publishedDate}}</h2>
-      <h2>Author: {{book.author}}</h2>
-      <p>Description: {{book.description}}</p>
+      <h2>{{'language.subtitle' | translate }}: <span style="color:gray">{{book.subtitle}}</span></h2>
+      <h2>{{'language.categories' | translate }}: <span style="color:gray">{{book.categories}}</span></h2>
+      <h2>{{'language.publishedDate' | translate }}:  <span style="color:gray">{{book.publishedDate}}</span></h2>
+      <h2>{{'language.authors' | translate }}:  <span style="color:gray">{{book.author}}</span></h2>
+      <h3  style="font-weight: bold">Description:</h3>
+      <p> {{book.description}}</p>
       <div mat-dialog-actions>
-        <button mat-stroked-button color="primary"(click)="onNoClick()" class="close-button">Close</button>
+        <button mat-stroked-button color="primary" (click)="onNoClick()" class="close-button">{{'language.close' | translate }}</button>
       </div>
     </div>
   </div>
