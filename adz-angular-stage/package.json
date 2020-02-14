@@ -18,14 +18,16 @@
     "@angular/core": "~9.0.0",
     "@angular/forms": "~9.0.0",
     "@angular/material": "^9.0.0",
+    "@angular/material-moment-adapter": "latest",
     "@angular/platform-browser": "~9.0.0",
     "@angular/platform-browser-dynamic": "~9.0.0",
     "@angular/router": "~9.0.0",
+    "@ngx-translate/core": "^12.1.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "moment": "^2.24.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "@angular/material-moment-adapter": "latest"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.1",
