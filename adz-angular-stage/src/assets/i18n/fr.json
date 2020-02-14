@@ -1,0 +1,17 @@
+{
+  "language": {
+    "search": "Chercher...",
+    "lang": "Langue",
+    "filters": "Filtres",
+    "subtitle": "Sous-titre",
+    "category": "Catégorie",
+    "categories": "Catégories",
+    "author": "Auteur",
+    "authors": "Auteurs",
+    "date": "Date",
+    "title": "Titre",
+    "publishedDate": "Date de publication",
+    "back": "Retour",
+    "close": "fermer"
+  }
+}

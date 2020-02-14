@@ -4,12 +4,13 @@
   </span>
   <span class="example-spacer"></span>
     <mat-form-field appearance="fill" style="font-size: 80%; padding-top: 15px; min-width: 15%">
-      <mat-label>Language</mat-label>
-      <mat-select  [(value)]="selected">
+      <mat-label>{{'language.lang' | translate }}</mat-label>
+      <mat-select  [(value)]="selected" (selectionChange)="onChange()">
         <mat-option value="fr">Fr <img src="../assets/images/france.svg" class="flag"></mat-option>
         <mat-option value="en">En <img src="../assets/images/uk.svg" class="flag"></mat-option>
       </mat-select>
     </mat-form-field>
+    <button type="submit" style="display: none"></button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

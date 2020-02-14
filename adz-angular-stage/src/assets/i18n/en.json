@@ -1,0 +1,17 @@
+{
+  "language": {
+    "search": "Search...",
+    "lang": "Language",
+    "filters": "Filters",
+    "subtitle": "Subtitle",
+    "category": "Category",
+    "categories": "Categories",
+    "author": "Author",
+    "authors": "Authors",
+    "date": "Date",
+    "title": "Title",
+    "publishedDate": "Published date",
+    "back": "Go Back",
+    "close": "close"
+  }
+}

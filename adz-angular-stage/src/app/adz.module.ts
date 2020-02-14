@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {APP_INITIALIZER, NgModule} from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MaterialModule } from './modules/material/material.module';
 
 
@@ -16,6 +16,8 @@ import {ApiConfigService} from './services/api-config/api-config.service';
 import { BookDialogOverviewComponent } from './component/book-dialog-overview/book-dialog-overview.component';
 import { CatalogueFilterComponent } from './component/catalogue-filter/catalogue-filter.component';
 import { FooterComponent } from './component/footer/footer.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 export function initializeApi(appConfig: ApiConfigService) {
@@ -40,6 +42,13 @@ export function initializeApi(appConfig: ApiConfigService) {
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     ApiConfigService,
@@ -52,3 +61,9 @@ export function initializeApi(appConfig: ApiConfigService) {
   bootstrap: [AdzComponent]
 })
 export class AdzModule { }
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
